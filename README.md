@@ -1,5 +1,21 @@
-# homeserver
-Home server setup for posterity
+Server build below, running FreeNAS 11.3 U1 and storage 2x RAIDZ2 of four WD RED 3tb hard drives each.
+
+# VMs
+
+OS | Purpose
+:---|:---
+Ubuntu 18.10 | Main VM with Nginx for reverse proxy
+Ubuntu 18.10 | For the sole purpose of hosting JupyterLab
+Ubuntu 18.10 | Hosts docker and docker apps, specifically Bitwarden, Ghost, Grafana, Influxdb, Telegraf
+
+# Plugins
+
+
+
+# Jails
+
+# Parts List
+
 [PCPartPicker Part List](https://pcpartpicker.com/list/4yThfH)
 
 Type|Item|Price
