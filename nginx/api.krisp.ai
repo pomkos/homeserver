@@ -1,0 +1,33 @@
+server {
+    server_name api.krisp.ai;
+    root /var/www/80home/krisp/;
+    index index.html index.htm index.php;
+        listen  80;
+        listen 443 ssl http2;
+        listen [::]:443 ssl http2;
+
+        ssl_certificate /etc/ssl/certs/api.krisp.ai.crt;
+        ssl_certificate_key /etc/ssl/private/api.krisp.ai.key;
+
+        ssl_protocols TLSv1.2 TLSv1.1 TLSv1;
+
+        location / {
+		try_files $uri $uri/ /index.php?$args;
+        }
+
+        # pass PHP scripts to FastCGI server
+        #
+        location ~ \.php$ {
+                include snippets/fastcgi-php.conf;
+
+                # With php-fpm (or other unix sockets):
+                fastcgi_pass unix:/var/run/php/php7.2-fpm.sock;
+        #       # With php-cgi (or other tcp sockets):
+        #       fastcgi_pass 127.0.0.1:9000;
+        }
+
+
+}
+
+
+
