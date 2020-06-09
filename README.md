@@ -13,7 +13,6 @@ Ubuntu 18.04 | Hosts docker and docker apps, specifically Bitwarden, Ghost, Graf
 Plugin | Purpose
 :---|:---
 HomeAssistant | Collects all smart devices into one convenient dashboard
-Nextcloud | Syncs folders and files between PC, laptop, phone. Easy access off site
 qBittorrent | Downloading Linux ISOs
 ZoneMinder | Controls security cameras, setting up zones and rules for recording
 
@@ -21,6 +20,7 @@ ZoneMinder | Controls security cameras, setting up zones and rules for recording
 
 Jail | Purpose
 :---|:---
+Nextcloud | Syncs folders and files between PC, laptop, phone. Easy access off site. Plugin wouldn't update so went all jail using [this script](https://github.com/danb35/freenas-iocage-nextcloud)
 Plex | Streaming videos and shows to all devices. Jail is easier to update than plugin.
 
 
