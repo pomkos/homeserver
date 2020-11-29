@@ -3,7 +3,7 @@ Server build running FreeNAS 11.3 U1 and storage 2x RAIDZ2 of four WD RED 3tb ha
 # VMs
 
 Name | OS | Purpose
-:---|:---
+:---|:---|:---
 ubuv2 | Ubuntu 18.04 | Main VM with Nginx for reverse proxy
 jupyter_ubuntu | Ubuntu 18.04 | For the sole purpose of hosting JupyterLab
 ubuntu_docker | Ubuntu 18.04 | Hosts docker and docker apps, specifically Bitwarden, Ghost, Grafana, Influxdb, Telegraf
