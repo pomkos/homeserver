@@ -1,5 +1,7 @@
 Server build running FreeNAS 11.3 U1 and storage 2x RAIDZ2 of four WD RED 3tb hard drives each.
 
+<img src="https://github.com/pomkos/homeserver/raw/master/Screen%20Shot%202021-01-14%20at%2011.55.10%20AM.png" width="620">
+
 # VMs
 
 Name | OS | Purpose
