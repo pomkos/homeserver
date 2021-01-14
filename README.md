@@ -4,9 +4,9 @@ Server build running FreeNAS 11.3 U1 and storage 2x RAIDZ2 of four WD RED 3tb ha
 
 Name | OS | Purpose
 :---|:---|:---
-ubuv2 | Ubuntu 18.04 | Main VM with Nginx for reverse proxy
-jupyter_ubuntu | Ubuntu 18.04 | For the sole purpose of hosting JupyterLab
-ubuntu_docker | Ubuntu 18.04 | Hosts docker and docker apps, specifically Bitwarden, Ghost, Grafana, Influxdb, Telegraf
+ubuntu_host | Ubuntu 18.04 | Main VM that hosts [dash](dash.thegates.online), [peti.work](peti.work), [payme](payme.peti.work), [brotein](brotein.peti.work), [covid dash](covid.peti.work), and OpenVPN
+ubuntu_jupyter | Ubuntu 18.04 | For the sole purpose of hosting JupyterLab
+ubuntu_docker | Ubuntu 18.04 | Hosts docker and docker apps, specifically Bitwarden, Ghost, NginxProxyManager,Wordpress, Postgres DB, Portainer
 
 # Plugins
 
