@@ -1,6 +1,16 @@
+# Table of Contents
+
+1. [Screenshot](#screenshot)
+2. [VMs](#vms)
+3. [Plugins](#plugins)
+4. [Jails](#jails)
+5. [Parst List](#parts-list)
+
 Server build running FreeNAS 11.3 U1 and storage 2x RAIDZ2 of four WD RED 3tb hard drives each.
 
-<img src="https://github.com/pomkos/homeserver/raw/master/Screen%20Shot%202021-01-14%20at%2011.55.10%20AM.png" width="620">
+# Screenshot
+
+<img src="https://github.com/pomkos/homeserver/raw/master/Screen%20Shot%202021-01-14%20at%2011.55.10%20AM.png" width="720">
 
 # VMs
 
