@@ -6,7 +6,7 @@ Server build running FreeNAS 11.3 U1 and storage 2x RAIDZ2 of four WD RED 3tb ha
 2. [VMs](#vms)
 3. [Plugins](#plugins)
 4. [Jails](#jails)
-5. [Parst List](#parts-list)
+5. [Parts List](#parts-list)
 
 # Screenshot
 
