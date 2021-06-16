@@ -64,7 +64,7 @@ Type|Item|Price
 
 # Helpful Scripts
 
-`add_kernel.sh` will add a python kernel linking from given conda environment to jupyterlab using the given display name. 
+`add_kernel.sh` will add a python kernel linking from given conda environment to jupyterlab using the given display name. Created with heavy inspiration from [neatshell's simple bash template](https://gist.github.com/neatshell/5283811).
 
 Prereqs:
 
