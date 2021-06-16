@@ -64,9 +64,35 @@ Type|Item|Price
 
 # Helpful Scripts
 
-`add_kernel.sh` will add a python kernel linking from given conda environment to jupyterlab using the given display name. Use:
+`add_kernel.sh` will add a python kernel linking from given conda environment to jupyterlab using the given display name. 
 
-```
+Prereqs:
+
+* Conda if on Ubuntu, miniconda3 if on MacOS. 
+* Must have python and ipykernel installed in given environment.
+* Assumes .conda and /opt/miniconda folders are in home folder (change lines 100-107 as needed).
+
+```bash
+# give execute permission
 sudo chmod 700 add_kernel.sh
-./add_kernel.sh -e my_env -d "My Env" -os "ubuntu" # default os is mac
+
+# default os is mac
+./add_kernel.sh -e my_env -d "My Env" -os "ubuntu" 
+```
+
+`--help` output:
+
+```bash
+usage: add_kernel MANDATORY [OPTION]
+
+Adds a python kernel to the jupyterlab instance.
+
+MANDATORY:
+  -e, --env           str  Name of conda environment
+  -d, --display_name  str  What is shown inside JupyterLab
+OPTION:
+  -o, --os            str  What os is used. Accepts 'mac' (default) or 'ubuntu' as parameters.
+  -h, --help               Prints this help
+
+example: add_kernel -e my_env -d 'My Env'
 ```
