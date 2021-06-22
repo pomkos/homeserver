@@ -64,6 +64,8 @@ Type|Item|Price
 
 # Helpful Scripts
 
+## add_kernel.sh
+
 `add_kernel.sh` will add a python kernel linking from given conda environment to jupyterlab using the given display name. Created with heavy inspiration from [neatshell's simple bash template](https://gist.github.com/neatshell/5283811).
 
 Prereqs:
@@ -96,3 +98,14 @@ OPTION:
 
 example: add_kernel -e my_env -d 'My Env'
 ```
+
+## backup_server.sh
+
+Initiates `rsync` command to backup SMB folders in order of importance. All outputs will be shown in the terminal and saved in `output.txt`. Created to backup FreeNAS shares to an external hard drive over the network. Modify:
+
+* Line 3: change name or order of folders
+* Line 8: change location of SMB mount and backup location
+
+Sample output:
+
+<img src="https://github.com/pomkos/homeserver/raw/master/backup_sample.png" width="720">
