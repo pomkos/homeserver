@@ -8,7 +8,8 @@ Server build running FreeNAS 11.3 U1 and storage 2x RAIDZ2 of four WD RED 3tb ha
 4. [Jails](#jails)
 5. [Parts List](#parts-list)
 6. [Helpful Scripts](#helpful-scripts)
-    1. [Add Jupyter Kernel](#add_kernel-sh)
+    1. [Add Jupyter Kernel](#add_kernel)
+    2. [Backup SMB](#backup_server)
 
 # Screenshot
 
@@ -65,7 +66,7 @@ Type|Item|Price
 
 # Helpful Scripts
 
-## add_kernel.sh
+## add_kernel
 
 `add_kernel.sh` will add a python kernel linking from given conda environment to jupyterlab using the given display name. Created with heavy inspiration from [neatshell's simple bash template](https://gist.github.com/neatshell/5283811).
 
@@ -100,9 +101,9 @@ OPTION:
 example: add_kernel -e my_env -d 'My Env'
 ```
 
-## backup_server.sh
+## backup_server
 
-Initiates `rsync` command to backup SMB folders in order of importance. All outputs will be shown in the terminal and saved in `output.txt`. Created to backup FreeNAS shares to an external hard drive over the network. Modify:
+`backup_server.sh` initiates `rsync` command to backup SMB folders in order of importance. All outputs will be shown in the terminal and saved in `output.txt`. Created to backup FreeNAS shares to an external hard drive over the network. Modify:
 
 * Line 3: change name or order of folders
 * Line 8: change location of SMB mount and backup location
