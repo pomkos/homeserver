@@ -8,7 +8,7 @@ Server build running FreeNAS 11.3 U1 and storage 2x RAIDZ2 of four WD RED 3tb ha
 4. [Jails](#jails)
 5. [Parts List](#parts-list)
 6. [Helpful Scripts](#helpful-scripts)
-  1. [Add Jupyter Kernel](#add_kernel.sh)
+    1. [Add Jupyter Kernel](#add_kernel-sh)
 
 # Screenshot
 
