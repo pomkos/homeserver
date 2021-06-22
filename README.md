@@ -19,7 +19,7 @@ Server build running FreeNAS 12.04 U4 and storage 2x RAIDZ2 of four WD RED 3tb h
 
 Name | OS | Purpose
 :---|:---|:---
-ubuntu_host | Ubuntu 18.04 | Main VM that hosts [dash](dash.thegates.online), [peti.work](peti.work), [payme](payme.peti.work), [brotein](brotein.peti.work), [covid dash](covid.peti.work), and OpenVPN
+ubuntu_host | Ubuntu 18.04 | Main VM that hosts [dash](https://dash.thegates.online), [peti.work](https://peti.work), [payme](https://payme.peti.work), [brotein](https://brotein.peti.work), [covid dash](https://covid.peti.work), and OpenVPN
 ubuntu_jupyter | Ubuntu 18.04 | For the sole purpose of hosting JupyterLab
 ubuntu_docker | Ubuntu 18.04 | Hosts docker and docker apps, specifically Bitwarden, Ghost, NginxProxyManager,Wordpress, Postgres DB, Portainer
 
