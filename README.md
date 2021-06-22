@@ -1,4 +1,4 @@
-Server build running FreeNAS 11.3 U1 and storage 2x RAIDZ2 of four WD RED 3tb hard drives each. Lives in my closet.
+Server build running FreeNAS 12.04 U4 and storage 2x RAIDZ2 of four WD RED 3tb hard drives each. Lives in my closet.
 
 # Table of Contents
 
@@ -13,7 +13,7 @@ Server build running FreeNAS 11.3 U1 and storage 2x RAIDZ2 of four WD RED 3tb ha
 
 # Screenshot
 
-<img src="https://github.com/pomkos/homeserver/raw/master/Screen%20Shot%202021-01-14%20at%2011.55.10%20AM.png" width="720">
+<img src="https://github.com/pomkos/homeserver/raw/master/freenas_screen.png" width="720">
 
 # VMs
 
