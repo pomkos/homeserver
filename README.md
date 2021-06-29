@@ -11,6 +11,7 @@ Server build running FreeNAS 12.04 U4 and storage 2x RAIDZ2 of four WD RED 3tb h
 7. [Helpful Scripts](#helpful-scripts)
     1. [Add Jupyter Kernel](#add_kernel)
     2. [Backup SMB](#backup_server)
+    3. [Initialize Ubuntu](#initiate_ubuntu)
 
 # Screenshot
 
@@ -129,3 +130,18 @@ example: add_kernel -e my_env -d 'My Env'
 Sample output:
 
 <img src="https://github.com/pomkos/homeserver/raw/master/backup_sample.png" width="720">
+
+## initiate_ubuntu
+
+`initiate_ubuntu.sh` will be a collection of commands to carry out common tasks whenever a new ubuntu server is created. Right now it:
+
+1. Appends HDA SMB folder locations to fstab file
+2. Creates new folders for the defined SMB folders under `/mnt/Network/$folder`
+3. Creates `.smbcredentials` file with the passed `-u` and `-p` variables, with `chmod 600`
+4. Mounts all folders in the fstab file
+
+Modify:
+
+* Lines 16-25, settings for server location, folder names, etc.
+* Lines 132-146, folders that have spaces in them are special cases that need to be added to fstab with `\040` in place of space
+* Line 158, if the password protected folder is not outside the $remote_mount folder
