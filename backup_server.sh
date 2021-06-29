@@ -1,6 +1,6 @@
 #! /bin/bash
 # Home\ Videos: the "\ " represents space
-for folder in Pictures Home\ Videos TV Movies Music Test Import Documents Dump Backup
+for folder in Backups Documents Downloads Dump Home\ Videos Imports Matt\ Stuff Movies Music Pictures Steven TV
 do
     echo "========================================================="
     echo "======================== $folder ========================"
