@@ -3,13 +3,31 @@
 ###################################################
 # Function: automate common ubuntu setup tasks    #
 # Tasks:                                          #
-#   - Create fstab file                           #
+#   - Append fstab file                           #
 #   - Create /mnt/Network/$folder folders         #
 #   - Mount HDA smb folders to /mnt/Network/*     #
 # Script using neatshell's template               #
 # https://gist.github.com/neatshell/5283811       #
 ###################################################
 
+###################################################
+#                Settings to modify               #
+###################################################
+ubuntu_home='ubuntu'                                          # Username of ubuntu user
+server_name='HDA'                                             # Used in success messages
+ip=192.168.1.250                                              # IP of SMB server
+remote_mount=Server                                           # Folder on SMB that all other nonpassword protected folders are in
+local_mount=Network                                           # Folder in /mnt/ that all folders will be mounted to
+special_folder='Peti'                                         # Password protected, outside the $remote_mount folder
+declare -a smb_folders=("Backups" "Documents"                 # Not password protected, inside the $remote_mount folder
+    "Downloads" "Dump" "Home Videos" "Imports" 
+    "Matt Stuff" "Movies" "Music" "Pictures" 
+    "Steven" "TV")
+# NOTE: Folders with a space in them need to be manually added in if statements (see lines 128-142)
+
+###################################################
+#                neatshell template               #
+###################################################
 script="initiate_ubuntu"
 #Declare the number of mandatory args
 margs=2
@@ -26,8 +44,8 @@ function usage {
 function help {
   usage
     echo -e "MANDATORY:"
-    echo -e "  -u, --username  VAL  The username of 'Peti' share on HDA"
-    echo -e "  -p, --password  VAL  The password of 'Peti' share on HDA"
+    echo -e "  -u, --username  VAL  The username of '$special_folder' share on $server_name"
+    echo -e "  -p, --password  VAL  The password of '$special_folder' share on $server_name"
   example
 }
 
@@ -94,60 +112,59 @@ done
 # Pass here your mandatory args for check
 margs_check $user $pass
 
-#############
-# Main Body #
-#############
-
+###################################################
+#                    Main Body                    #
+###################################################
 ### install requirements ###
-sudo apt-get install cifs-utils -y
+apt-get install cifs-utils -y
 
 ### append to fstab file and create folders###
 #### initiate ####
-sudo echo "" >> /etc/fstab
-sudo echo "# Mounted from HDA Main"  >> /etc/fstab
-sudo echo "" >> /etc/fstab
-sudo mkdir /mnt/Network
+echo "" >> /etc/fstab
+echo "# Mounted from $server_name Main"  >> /etc/fstab
+echo "" >> /etc/fstab
+mkdir /mnt/$local_mount
 #### folders ####
-for folder in "Backups" "Documents" "Downloads" "Dump" "Home Videos" "Imports" "Matt Stuff" "Movies" "Music" "Pictures" "Steven" "TV"
+for folder in "${smb_folders[@]}";
 do
 #### folders with spaces ####
 if [ "$folder" = "Home Videos" ]
 then
     # Add to fstab
-    sudo echo "//192.168.1.250/Server/Home\040Videos /mnt/Network/Home\040Videos cifs guest,uid=1000,iocharset=utf8 0 0" >> /etc/fstab
-    sudo echo "" >> /etc/fstab
+    echo "//$ip/$remote_mount/Home\040Videos /mnt/$local_mount/Home\040Videos cifs guest,uid=1000,iocharset=utf8 0 0" >> /etc/fstab
+    echo "" >> /etc/fstab
     # make directory
-    sudo mkdir /mnt/Network/"$folder"
-    echo "$folder folder created and added to fstab"
+    mkdir /mnt/$local_mount/"$folder"
+    echo "$folder folder created and added to /etc/fstab"
     echo ""
 elif [ "$folder" = "Matt Stuff" ]
 then
-    sudo echo "//192.168.1.250/Server/Matt\040Stuff /mnt/Network/Matt\040Stuff cifs guest,uid=1000,iocharset=utf8 0 0" >> /etc/fstab
-    sudo echo "" >> /etc/fstab
-    sudo mkdir /mnt/Network/"$folder"
-    echo "$folder folder created and added to fstab"
+    echo "//$ip/$remote_mount/Matt\040Stuff /mnt/$local_mount/Matt\040Stuff cifs guest,uid=1000,iocharset=utf8 0 0" >> /etc/fstab
+    echo "" >> /etc/fstab
+    mkdir /mnt/$local_mount/"$folder"
+    echo "$folder folder created and added to /etc/fstab"
 else
-    sudo echo "//192.168.1.250/Server/$folder /mnt/Network/$folder cifs guest,uid=1000,iocharset=utf8 0 0" >> /etc/fstab
-    sudo echo "" >> /etc/fstab
-    sudo mkdir /mnt/Network/"$folder"
-    echo "$folder folder created and added to fstab"
+    echo "//$ip/$remote_mount/$folder /mnt/$local_mount/$folder cifs guest,uid=1000,iocharset=utf8 0 0" >> /etc/fstab
+    echo "" >> /etc/fstab
+    mkdir /mnt/$local_mount/"$folder"
+    echo "$folder folder created and added to /etc/fstab"
 fi
 done
-#### add special folder outside of /Server ####
-sudo echo "# Mounted from HDA Peti" >> /etc/fstab
-sudo echo "" >> /etc/fstab
-sudo mkdir /mnt/Network/Peti
-sudo echo "//192.168.1.250/Peti /mnt/Network/Peti cifs credentials=/home/ubuntu/.smbcredentials,iocharset=utf8 0 0" >> /etc/fstab
-echo "Peti created and added to fstab"
+#### add special folder outside of /$remote_mount ####
+echo "# Mounted from $server_name $special_folder" >> /etc/fstab
+echo "" >> /etc/fstab
+mkdir /mnt/$local_mount/$special_folder
+echo "//$ip/$special_folder /mnt/$local_mount/$special_folder cifs credentials=/home/$ubuntu_home/.smbcredentials,iocharset=utf8 0 0" >> /etc/fstab
+echo "$special_folder created and added to /etc/fstab"
 
 ### append to .smbcredentials file ###
-sudo echo "username=$user" >> .smbcredentials
-sudo echo "password=$pass" >> .smbcredentials
-sudo chmod 600 .smbcredentials
+echo "username=$user" >> .smbcredentials
+echo "password=$pass" >> .smbcredentials
+chmod 600 .smbcredentials
 
 ### mount folders ###
-sudo mount -a
+mount -a
 
 ### user feedback ###
 echo "Finished!"
-echo "HDA folders mounted in /mnt/Network/"
+echo "$server_name folders mounted in /mnt/$local_mount/"
