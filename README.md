@@ -145,3 +145,16 @@ Modify:
 * Lines 16-25, settings for server location, folder names, etc.
 * Lines 132-146, folders that have spaces in them are special cases that need to be added to fstab with `\040` in place of space
 * Line 158, if the password protected folder is not outside the $remote_mount folder
+
+## mount_usb
+
+`mount_usb.sh` asks user for drive info and then mounts the USB drive to
+
+1. Prints all connected drives that are named "sd**"
+2. Asks user for drive name (ex: sda1)
+3. Asks user for file system type (ex: ntfs)
+4. Mounts the drive to `/mnt/usb`
+
+Modify: 
+
+1. Lines 47 and 52, location to mount the drive to
