@@ -12,6 +12,7 @@ Server build running FreeNAS 12.04 U4 and storage 2x RAIDZ2 of four WD RED 3tb h
     1. [Add Jupyter Kernel](#add_kernel)
     2. [Backup SMB](#backup_server)
     3. [Initialize Ubuntu](#initiate_ubuntu)
+    4. [Mount USB Drive)(#mount_usb)
 
 # Screenshot
 
