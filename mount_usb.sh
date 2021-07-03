@@ -47,11 +47,13 @@ then
     mount -t ntfs-3g /dev/$disk /mnt/usb
     echo "Mounted to /mnt/usb"
     echo ""
+    ls /mnt/usb
 elif [ $file_type = "fat" ]
 then
     mount -t vfat/dev/$disk /mnt/usb
     echo "Mounted to /mnt/usb"
     echo ""
+    ls /mnt/usb
 else
     echo "Unknown filetype. Please submit ntfs or fat"
     echo ""
