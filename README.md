@@ -155,7 +155,8 @@ Modify:
 2. Asks user for drive name (ex: sda1)
 3. Asks user for file system type (ex: ntfs)
 4. Mounts the drive to `/mnt/usb`
+5. Shows contents of `/mnt/usb` so user can confirm it was mounted
 
 Modify: 
 
-1. Lines 47 and 52, location to mount the drive to
+1. Lines 47, 50, 52, 56 location to mount the drive to
