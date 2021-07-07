@@ -44,18 +44,21 @@ echo ""
 ###################
 if [ $file_type = "ntfs"  ]
 then
+    apt-get install cifs-utils
     mount -t ntfs-3g /dev/$disk /mnt/usb
     echo "Mounted to /mnt/usb"
     echo ""
     ls /mnt/usb
 elif [ $file_type = "fat" ]
 then
+    echo "fat filesystem supported by default"
     mount -t vfat /dev/$disk /mnt/usb
     echo "Mounted to /mnt/usb"
     echo ""
     ls /mnt/usb
 elif [ $file_type = "hfs" ]
 then
+    apt-get install hfsprogs
     mount -t hfsplus /dev/$disk /mnt/usb
     echo "Mounted to /mnt/usb"
     echo ""
