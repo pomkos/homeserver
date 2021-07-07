@@ -5,6 +5,7 @@
 # Tasks:                                          #
 #   - Append fstab file                           #
 #   - Create /mnt/Network/$folder folders         #
+#   - Install prereqs if needed                   #
 #   - Mount HDA smb folders to /mnt/Network/*     #
 # Script using neatshell's template               #
 # https://gist.github.com/neatshell/5283811       #
