@@ -34,7 +34,7 @@ echo "-----------------------------"
 read -p "Type the disk name: " disk
 echo ""
 
-read -p "ntfs or fat? " file_type
+read -p "ntfs, fat, or hfs? " file_type
 echo ""
 echo "-----------------------------"
 echo ""
@@ -50,7 +50,13 @@ then
     ls /mnt/usb
 elif [ $file_type = "fat" ]
 then
-    mount -t vfat/dev/$disk /mnt/usb
+    mount -t vfat /dev/$disk /mnt/usb
+    echo "Mounted to /mnt/usb"
+    echo ""
+    ls /mnt/usb
+elif [ $file_type = "hfs" ]
+then
+    mount -t hfsplus /dev/$disk /mnt/usb
     echo "Mounted to /mnt/usb"
     echo ""
     ls /mnt/usb
