@@ -74,9 +74,9 @@ Hard drives come and go, but data is for a lifetime. Currently installed HDD.
 | Mount| Serial           | Model                | Installed   | SATA  | Errors      |
 | ---- | ---------------- | -------------------- | ----------- | ----- | ----------- |
 | ada0 | WD-WCC[CENSORED] | WDC WD3[CENSORED]    | N/A         | SATA0 | 0           |
-| ada2 | WD-WCC[CENSORED] | WDC WD3[CENSORED]    | N/A         | SATA2 | 0           |
+| ada2 | WD-WCC[CENSORED] | WDC WD3[CENSORED]    | Dec 24 2021 | SATA2 | 0           |
 | ada3 | WD-WCC[CENSORED] | WDC WD3[CENSORED]    | Jan 4 2020  | SATA3 | self-healed |
-| ada4 | WD-WCC[CENSORED] | WDC WD3[CENSORED]    | N/A         | SATA4 | 0           |
+| ada4 | WD-WCC[CENSORED] | WDC WD3[CENSORED]    | Jan 4 2022  | SATA4 | 0           |
 | ada5 | WD-WX3[CENSORED] | WDC WD3[CENSORED]    | Apr 16 2021 | SATA5 | 0           |
 | ada1 | WD-WX3[CENSORED] | WDC WD3[CENSORED]    | Jun 21 2021 | SATA1 | 0           |
 | da0  | WD-WCC[CENSORED] | ATA WDC[CENSORED]    | Jun 7 2019  | BLUE2 | 0           |
